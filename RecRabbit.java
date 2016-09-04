@@ -4,7 +4,7 @@ public class RecRabbit
 {
     public static void main(String[] args)
     {
-         int[] x = {8,2,3,5,1,2,12,4,7,41};
+         int[] x = {8,2,3,5,1,2,12,4,7,41,5,7,4,124};
          answers(x);
         //int[] x = {12,0,0,0,0,4};
         //moveRabbits(0, 5, x);
@@ -29,24 +29,25 @@ public class RecRabbit
           int middle = lp + (hp-lp)/2;
           total(lp, middle, x);
           total(middle+1, hp, x);
-          moveRabbits(lp, hp, x);
+          moveRabbits(lp, middle, hp, x);
       }
     }//total
 
-    public static void moveRabbits(int lp, int hp, int[] x)
+    public static void moveRabbits(int lp, int middle, int hp, int[] x)
     {
       int nump = 0;
 
-      if(nump != lp){
+
           for(int i=lp+1; i<=hp; i++){
             if(x[i]>0){
                 nump = i;
             }//if
           }//for
+
           while(x[nump]>0){
               move(lp, nump, x);
           }//while
-      }//if
+
     }//moveRabbits
 
     public static void move(int lp, int hp, int[] x)
